@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kannada Sign Language Recognition</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MediaPipe dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ಕನ್ನಡ ಸೈನ್ ಭಾಷೆ ಗುರುತಿಸುವಿಕೆ</h1>
+        <h2>Kannada Sign Language Recognition</h2>
+        
+        <div class="mode-selector">
+            <button id="letterMode" class="active">Letter Mode</button>
+            <button id="sentenceMode">Sentence Mode</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="webcam-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="canvas"></canvas>
+                <div class="controls">
+                    <button id="startBtn">Start Camera</button>
+                    <button id="captureBtn" disabled>Capture Sign</button>
+                </div>
+            </div>
+            
+            <div class="result-container">
+                <div class="recognized-text">
+                    <h3>Recognized Text:</h3>
+                    <div id="outputText" class="kannada-text"></div>
+                </div>
+                <div class="actions">
+                    <button id="speakBtn" disabled>
+                        <span class="icon">🔊</span> Speak
+                    </button>
+                    <button id="clearBtn" disabled>
+                        <span class="icon">🗑️</span> Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <p>1. Select mode (Letter or Sentence)</p>
+            <p>2. Click "Start Camera" to enable webcam</p>
+            <p>3. Position your hand in the frame and perform the sign</p>
+            <p>4. Click "Capture Sign" to recognize</p>
+            <p>5. Use "Speak" to hear the Kannada pronunciation</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.3.1636586287/handtracking.js"></script>
+</body>
+</html>
